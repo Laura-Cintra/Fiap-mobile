@@ -8,8 +8,10 @@ export default function App() {
             <View style={styles.header}>
                 <Image source={require("./assets/fiap-logo.png")} />
             </View>
-            <Text>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
+            <View>
+				<Text>Open up App.js to start working on your app!</Text>
+				<StatusBar style="auto" />
+			</View>
         </View>
     );
 }
@@ -22,6 +24,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     header: {
-        justifyContent: "flex-start",
+        
     },
 });
