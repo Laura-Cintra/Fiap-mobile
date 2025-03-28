@@ -8,11 +8,14 @@ import {
     Dimensions,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 const DRAWER_WIDTH = width * 0.4;
 
 export default function Drawer({ isOpen, onClose }) {
+    const navigation = useNavigation();
+
     const translateX = useRef(new Animated.Value(-DRAWER_WIDTH)).current;
 
     useEffect(() => {
@@ -51,11 +54,24 @@ export default function Drawer({ isOpen, onClose }) {
                 </View>
 
                 <View style={styles.content}>
-                    <TouchableOpacity style={styles.menuItem}>
+                    <TouchableOpacity
+                        style={styles.menuItem}
+                        onPress={() => {
+                            navigation.navigate("Home");
+                            onClose();
+                        }}
+                    >
                         <AntDesign name="book" size={20} color="#BDBEBD" />
                         <Text style={styles.menuItemText}>Notas</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menuItem}>
+
+                    <TouchableOpacity
+                        style={styles.menuItem}
+                        onPress={() => {
+							navigation.navigate("Aulas");
+							onClose();
+						}}
+                    >
                         <AntDesign name="calendar" size={20} color="#BDBEBD" />
                         <Text style={styles.menuItemText}>Aulas</Text>
                     </TouchableOpacity>

@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import UserProvider from "./providers/UserContext";
 import Drawer from "./components/Drawer";
 import { useState } from "react";
+import Aulas from "./pages/Home";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -59,6 +60,8 @@ function MainStack() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="MainTabs" component={MainTabs} />
+			<Stack.Screen name="Home" component={Home} />
+			<Stack.Screen name="Aulas" component={Aulas} />
         </Stack.Navigator>
     );
 }
