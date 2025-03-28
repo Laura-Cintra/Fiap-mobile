@@ -1,15 +1,17 @@
-import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+
 import Entypo from '@expo/vector-icons/Entypo';
+import React from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { triggerReset } from '../GlobalReset';
 
 export default function Header({ onMenuPress, onLogoPress }) {
+
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={onMenuPress}>
         <Entypo  name="menu" size={24} color="#ED145B" />
       </TouchableOpacity>
+
       <TouchableOpacity onPress={triggerReset}>
 		<Image
 		  source={require('../assets/fiap-logo.png')}
@@ -17,6 +19,7 @@ export default function Header({ onMenuPress, onLogoPress }) {
 		  resizeMode="contain"
 		/>
 	  </TouchableOpacity>
+
     </View>
   );
 }

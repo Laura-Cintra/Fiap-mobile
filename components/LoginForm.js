@@ -1,31 +1,41 @@
-import { View, TextInput, Button, StyleSheet, Modal, Text, TouchableOpacity } from 'react-native';
-import { useUser } from '../providers/UserContext';
-import { useState } from 'react';
-import { AntDesign } from '@expo/vector-icons';
-import Fontisto from '@expo/vector-icons/Fontisto';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
+import { AntDesign } from "@expo/vector-icons";
+import EvilIcons from "@expo/vector-icons/EvilIcons";
+import Fontisto from "@expo/vector-icons/Fontisto";
+import { useState } from "react";
+import {
+    Button,
+    Modal,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
+} from "react-native";
+import { useUser } from "../providers/UserContext";
 
 export default function LoginForm({ navigation }) {
     const users = [
-        { name: 'Maria', email: 'maria@fiap.com', password: 'RM558832' },
-        { name: 'Vinicius', email: 'vinicius@fiap.com', password: 'RM554456' },
-        { name: 'Laura', email: 'laura@fiap.com', password: 'RM558843' },
+        { name: "Maria", email: "maria@fiap.com", password: "RM558832" },
+        { name: "Vinicius", email: "vinicius@fiap.com", password: "RM554456" },
+        { name: "Laura", email: "laura@fiap.com", password: "RM558843" },
     ];
 
     const { setUser } = useUser();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
     // Estado do Modal
     const [modalVisible, setModalVisible] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+    const [modalMessage, setModalMessage] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
     const handleLogin = () => {
-        console.log('Login button pressed');
-        const user = users.find(u => u.email === email && u.password === password);
-        
+        console.log("Login button pressed");
+        const user = users.find(
+            (u) => u.email === email && u.password === password
+        );
+
         if (user) {
             setModalMessage(`Bem-vindo, ${user.name}!`);
             setIsSuccess(true);
@@ -34,10 +44,10 @@ export default function LoginForm({ navigation }) {
 
             setTimeout(() => {
                 setModalVisible(false);
-                navigation.replace('MainTabs');
+                navigation.replace("Home");
             }, 2000);
         } else {
-            setModalMessage('Email ou senha incorretos!');
+            setModalMessage("Email ou senha incorretos!");
             setIsSuccess(false);
             setModalVisible(true);
         }
@@ -46,7 +56,12 @@ export default function LoginForm({ navigation }) {
     return (
         <View>
             <View style={styles.inputContainer}>
-                <AntDesign name="user" size={20} color="white" style={styles.icon} />
+                <AntDesign
+                    name="user"
+                    size={20}
+                    color="white"
+                    style={styles.icon}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Nome"
@@ -56,7 +71,12 @@ export default function LoginForm({ navigation }) {
                 />
             </View>
             <View style={styles.inputContainer}>
-                <Fontisto name="email" size={24} color="white" style={styles.icon} />
+                <Fontisto
+                    name="email"
+                    size={24}
+                    color="white"
+                    style={styles.icon}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="E-mail"
@@ -66,7 +86,12 @@ export default function LoginForm({ navigation }) {
                 />
             </View>
             <View style={styles.inputContainer}>
-                <EvilIcons name="lock" size={24} color="white" style={styles.icon} />
+                <EvilIcons
+                    name="lock"
+                    size={24}
+                    color="white"
+                    style={styles.icon}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Senha"
@@ -77,7 +102,7 @@ export default function LoginForm({ navigation }) {
                 />
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="Login" color="#ED145B" onPress={handleLogin} /> 
+                <Button title="Login" color="#ED145B" onPress={handleLogin} />
             </View>
 
             {/* Modal de Feedback do login*/}
@@ -88,9 +113,17 @@ export default function LoginForm({ navigation }) {
                 onRequestClose={() => setModalVisible(false)}
             >
                 <View style={styles.modalContainer}>
-                    <View style={[styles.modalContent, isSuccess ? styles.successModal : styles.errorModal]}>
+                    <View
+                        style={[
+                            styles.modalContent,
+                            isSuccess ? styles.successModal : styles.errorModal,
+                        ]}
+                    >
                         <Text style={styles.modalText}>{modalMessage}</Text>
-                        <TouchableOpacity style={styles.modalButton} onPress={() => setModalVisible(false)}>
+                        <TouchableOpacity
+                            style={styles.modalButton}
+                            onPress={() => setModalVisible(false)}
+                        >
                             <Text style={styles.modalButtonText}>OK</Text>
                         </TouchableOpacity>
                     </View>
@@ -110,7 +143,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 12,
         width: "100%",
-        marginBottom: 20
+        marginBottom: 20,
     },
     icon: {
         marginRight: 8,
@@ -143,10 +176,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     successModal: {
-        backgroundColor: "#2ecc71", 
+        backgroundColor: "#2ecc71",
     },
     errorModal: {
-        backgroundColor: "#e74c3c", 
+        backgroundColor: "#e74c3c",
     },
     modalText: {
         color: "#fff",

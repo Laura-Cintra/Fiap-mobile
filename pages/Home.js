@@ -98,11 +98,13 @@ export default function Aulas() {
                 ))}
 
                 <InputForm
-                    label="Faltas"
-                    value={faltas}
-                    onChangeText={setFaltas}
-                    placeholder="Insira o número de faltas"
-                />
+					label={"Faltas"}
+					value={faltas}
+					onChangeText={(txt) => {
+						const infoClean = txt.replace(/[^0-9]/g, '');
+						setFaltas(infoClean)
+					}}
+				/>
 
                 <TouchableOpacity
                     style={styles.submitButton}
