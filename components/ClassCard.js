@@ -1,6 +1,6 @@
+import AntDesign from "@expo/vector-icons/AntDesign";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AntDesign from "@expo/vector-icons/AntDesign";
 export default function ClassCard({ classData }) {
     return (
         <View style={styles.cardContainer}>

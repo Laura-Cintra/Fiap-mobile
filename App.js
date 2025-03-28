@@ -1,4 +1,3 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
@@ -11,7 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import UserProvider from "./providers/UserContext";
 const Stack = createStackNavigator();
-// const Tab = createBottomTabNavigator();
+
 
 // Componente de Layout para telas com Header fixo
 function DefaultLayout({ children }) {
@@ -29,27 +28,6 @@ function DefaultLayout({ children }) {
     );
 }
 
-// Configuração do Bottom Tabs (as demais telas navegaveis)
-// function MainTabs() {
-//     return (
-//         <Tab.Navigator screenOptions={{ headerShown: false }}>
-//             <Tab.Screen name="Home">
-//                 {() => (
-//                     <DefaultLayout>
-//                         <Home />
-//                     </DefaultLayout>
-//                 )}
-//             </Tab.Screen>
-//             <Tab.Screen name="Aulas">
-//                 {() => (
-//                     <DefaultLayout>
-//                         <Profile />
-//                     </DefaultLayout>
-//                 )}
-//             </Tab.Screen>
-//         </Tab.Navigator>
-//     );
-// }
 
 // Configuração do Stack Navigator
 //{/primeira tela login/}
