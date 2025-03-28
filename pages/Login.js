@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { View, Image, StyleSheet, Text, TextInput } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
-import Fontisto from '@expo/vector-icons/Fontisto';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
-
+import { View, Image, StyleSheet, Text } from "react-native";
 import fiapLogo from "../assets/fiap-logo.png";
 import imgLogin from "../assets/img-login.png";
-import { Button } from "react-native-web";
+import LoginForm from "../components/LoginForm";
 
-export default function Login() {
+export default function Login({navigation}) {
     const [text, setText] = useState("");
 
     return (
@@ -24,41 +20,7 @@ export default function Login() {
             <View style={styles.formContainer}>
                 <Text style={styles.title}>Login</Text>
                 <Text style={styles.subtitle}>Por favor, faça login para continuar</Text>
-
-                {/* Input com ícone */}
-                <View style={styles.inputContainer}>
-                    <AntDesign name="user" size={20} color="white" style={styles.icon} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Nome"
-                        placeholderTextColor="#798593"
-                        onChangeText={setText}
-                        value={text}
-                    />
-                </View>
-                <View style={styles.inputContainer}>
-                <Fontisto name="email" size={24} color="white" style={styles.icon}/>
-                <TextInput
-                        style={styles.input}
-                        placeholder="E-mail"
-                        placeholderTextColor="#798593"
-                        onChangeText={setText}
-                        value={text}
-                    />
-                </View>
-                <View style={styles.inputContainer}>
-                <EvilIcons name="lock" size={24} color="white" style={styles.icon}/>
-                <TextInput
-                        style={styles.input}
-                        placeholder="E-mail"
-                        placeholderTextColor="#798593"
-                        onChangeText={setText}
-                        value={text}
-                    />
-                </View>
-                <View style={styles.buttonContainer}>
-                    <Button title="Login" color="#ED145B" onPress={() => navigation.navigate("MainTabs")} />
-                </View>
+                <LoginForm navigation={navigation}/>
             </View>
         </View>
     );

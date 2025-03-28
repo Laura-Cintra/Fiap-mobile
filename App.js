@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Aulas";
 import Header from "./components/Header/Header";
+import UserProvider from "./providers/UserContext";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -57,12 +58,15 @@ function MainStack() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <MainStack />
-      </View>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <MainStack />
+        </View>
+      </NavigationContainer>
+
+    </UserProvider>
   );
 }
 
