@@ -7,6 +7,11 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Aulas";
 import Header from "./components/Header/Header";
+import React, { useState } from 'react';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import Header from './components/Header';
+import Drawer from './components/Drawer';
+import SchedulePage from './screens/SchedulePage'; // Sua página de aulas
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -56,11 +61,19 @@ function MainStack() {
 }
 
 export default function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar barStyle="light-content" backgroundColor="#111312" />
+        <Header onMenuPress={toggleDrawer} />
         <MainStack />
+        <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
       </View>
     </NavigationContainer>
   );
@@ -72,3 +85,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#111312",
   },
 });
+
