@@ -1,8 +1,5 @@
-import React from "react";
+import { default as React} from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import ClassCard from "../components/ClassCard";
-import React from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import ClassCard from "../components/ClassCard";
 
 export default function Aulas() {
