@@ -77,7 +77,10 @@ export default function Drawer({ isOpen, onClose }) {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.logoutButton} onPress={onClose}>
+                <TouchableOpacity style={styles.logoutButton} onPress={() => {
+					navigation.navigate('Login');
+					onClose();
+				}}>
                     <AntDesign name="logout" size={20} color="#ED145B" />
                     <Text style={styles.logoutText}>Sair</Text>
                 </TouchableOpacity>
