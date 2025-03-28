@@ -11,7 +11,6 @@ import Login from "./pages/Login";
 import UserProvider from "./providers/UserContext";
 const Stack = createStackNavigator();
 
-
 // Componente de Layout para telas com Header fixo
 function DefaultLayout({ children }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -21,29 +20,33 @@ function DefaultLayout({ children }) {
     };
     return (
         <View style={{ flex: 1 }}>
-            <Header onMenuPress={toggleDrawer}/>
-            <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}/>
+            <Header onMenuPress={toggleDrawer} />
+            <Drawer
+                isOpen={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+            />
             {children}
         </View>
     );
 }
-
 
 // Configuração do Stack Navigator
 //{/primeira tela login/}
 //{/* //apos ela, todas as outras telas disponiveis */}
 function MainStack() {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+            screenOptions={{ headerShown: false, cardStyle: { flex: 1 } }}
+        >
             <Stack.Screen name="Login" component={Login} />
-			<Stack.Screen name="Home">
+            <Stack.Screen name="Home">
                 {() => (
                     <DefaultLayout>
                         <Home />
                     </DefaultLayout>
                 )}
             </Stack.Screen>
-			<Stack.Screen name="Aulas">
+            <Stack.Screen name="Aulas">
                 {() => (
                     <DefaultLayout>
                         <Aulas />

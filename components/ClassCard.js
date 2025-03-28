@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         marginBottom: 22,
+		flex: 1,
     },
     cardTitle: {
         color: "#BDBEBD",

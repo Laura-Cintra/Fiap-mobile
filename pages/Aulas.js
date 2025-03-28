@@ -1,5 +1,5 @@
-import { default as React} from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { default as React } from "react";
+import { Platform, ScrollView, StyleSheet, Text, View } from "react-native";
 import ClassCard from "../components/ClassCard";
 
 export default function Aulas() {
@@ -42,7 +42,10 @@ export default function Aulas() {
     ];
 
     return (
-        <ScrollView>
+        <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={styles.contentContainer}
+        >
             <View style={styles.container}>
                 <Text style={styles.title}>Aulas</Text>
                 {classes.map((item, index) => (
@@ -54,12 +57,28 @@ export default function Aulas() {
 }
 
 const styles = StyleSheet.create({
+    scrollView: {
+        flex: 1,
+        backgroundColor: "#111312",
+    },
+    contentContainer: {
+        flexGrow: 1,
+        ...Platform.select({
+            web: {
+                minHeight: "100vh",
+            },
+        }),
+    },
     container: {
         flex: 1,
         paddingTop: 30,
         paddingHorizontal: 30,
         paddingBottom: 100,
-        backgroundColor: "#111312",
+        ...Platform.select({
+            web: {
+                minHeight: "100vh",
+            },
+        }),
     },
     title: {
         color: "#FFF",
