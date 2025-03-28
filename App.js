@@ -1,18 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View} from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Profile from "./pages/Aulas";
-import Header from "./components/Header";
-import UserProvider from "./providers/UserContext";
-import Drawer from "./components/Drawer";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import Aulas from "./pages/Home";
+import { StyleSheet, View } from "react-native";
+import Drawer from "./components/Drawer";
+import Header from "./components/Header";
+import Aulas from "./pages/Aulas";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import UserProvider from "./providers/UserContext";
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
 
 // Componente de Layout para telas com Header fixo
 function DefaultLayout({ children }) {
@@ -31,26 +30,26 @@ function DefaultLayout({ children }) {
 }
 
 // Configuração do Bottom Tabs (as demais telas navegaveis)
-function MainTabs() {
-    return (
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Home">
-                {() => (
-                    <DefaultLayout>
-                        <Home />
-                    </DefaultLayout>
-                )}
-            </Tab.Screen>
-            <Tab.Screen name="Aulas">
-                {() => (
-                    <DefaultLayout>
-                        <Profile />
-                    </DefaultLayout>
-                )}
-            </Tab.Screen>
-        </Tab.Navigator>
-    );
-}
+// function MainTabs() {
+//     return (
+//         <Tab.Navigator screenOptions={{ headerShown: false }}>
+//             <Tab.Screen name="Home">
+//                 {() => (
+//                     <DefaultLayout>
+//                         <Home />
+//                     </DefaultLayout>
+//                 )}
+//             </Tab.Screen>
+//             <Tab.Screen name="Aulas">
+//                 {() => (
+//                     <DefaultLayout>
+//                         <Profile />
+//                     </DefaultLayout>
+//                 )}
+//             </Tab.Screen>
+//         </Tab.Navigator>
+//     );
+// }
 
 // Configuração do Stack Navigator
 //{/primeira tela login/}
@@ -59,9 +58,21 @@ function MainStack() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
-			<Stack.Screen name="Home" component={Home} />
-			<Stack.Screen name="Aulas" component={Aulas} />
-            <Stack.Screen name="MainTabs" component={MainTabs} />
+			<Stack.Screen name="Home">
+                {() => (
+                    <DefaultLayout>
+                        <Home />
+                    </DefaultLayout>
+                )}
+            </Stack.Screen>
+			<Stack.Screen name="Aulas">
+                {() => (
+                    <DefaultLayout>
+                        <Aulas />
+                    </DefaultLayout>
+                )}
+            </Stack.Screen>
+            {/* <Stack.Screen name="MainTabs" component={MainTabs} /> */}
         </Stack.Navigator>
     );
 }
