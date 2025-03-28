@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 import fiapLogo from "../assets/fiap-logo.png";
 import imgLogin from "../assets/img-login.png";
 import LoginForm from "../components/LoginForm";
 
 export default function Login({navigation}) {
-    const [text, setText] = useState("");
 
     return (
         <View style={styles.container}>
@@ -51,8 +49,9 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         flex: 1,
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 4
     },
     title: {
         color: "#FFFFFF",
@@ -63,39 +62,5 @@ const styles = StyleSheet.create({
         color: "#6E7B82",
         fontSize: 14,
         marginBottom: 12,
-    },
-    inputContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#1A1C1E",
-        borderWidth: 1,
-        borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        width: "100%",
-        marginBottom: '20px'
-    },
-    icon: {
-        marginRight: 8,
-
-    },
-    input: {
-        flex: 1,
-        color: "#FFF",
-        fontSize: 16,
-        borderWidth: 0, 
-    },
-    button:{
-        width: '87px',
-        height:'22px',
-        backgroundColor: '#ED145B',
-        color: '#fff'
-    },
-    buttonContainer: {
-        width: 150,  // Largura do botão
-        borderRadius: 8,
-        overflow: "hidden", // Garante que o borderRadius funcione no Android
-        alignSelf: "center", // Centraliza o botão na tela
-        marginTop: 20,
-    },
+    }
 });
