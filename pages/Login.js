@@ -2,6 +2,7 @@ import { View, Image, StyleSheet, Text } from "react-native";
 import fiapLogo from "../assets/fiap-logo.png";
 import imgLogin from "../assets/img-login.png";
 import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/LoginForm";
 
 export default function Login({navigation}) {
 
@@ -18,6 +19,7 @@ export default function Login({navigation}) {
             <View style={styles.formContainer}>
                 <Text style={styles.title}>Login</Text>
                 <Text style={styles.subtitle}>Por favor, faça login para continuar</Text>
+                <LoginForm navigation={navigation}/>
                 <LoginForm navigation={navigation}/>
             </View>
         </View>

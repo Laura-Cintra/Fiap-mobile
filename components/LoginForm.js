@@ -1,17 +1,17 @@
+import { AntDesign } from "@expo/vector-icons";
+import EvilIcons from "@expo/vector-icons/EvilIcons";
+import Fontisto from "@expo/vector-icons/Fontisto";
+import { useState } from "react";
 import {
-    View,
-    TextInput,
     Button,
-    StyleSheet,
     Modal,
+    StyleSheet,
     Text,
+    TextInput,
     TouchableOpacity,
+    View,
 } from "react-native";
 import { useUser } from "../providers/UserContext";
-import { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
-import Fontisto from "@expo/vector-icons/Fontisto";
-import EvilIcons from "@expo/vector-icons/EvilIcons";
 
 export default function LoginForm({ navigation }) {
     const users = [
