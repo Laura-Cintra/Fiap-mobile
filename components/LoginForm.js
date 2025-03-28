@@ -1,4 +1,4 @@
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Modal, Text, TouchableOpacity } from 'react-native';
 import { useUser } from '../providers/UserContext';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
@@ -16,16 +16,30 @@ export default function LoginForm({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    
+    // Estado do Modal
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const handleLogin = () => {
         console.log('Login button pressed');
         const user = users.find(u => u.email === email && u.password === password);
+        
         if (user) {
-            Alert.alert('Login bem-sucedido', `Bem-vindo, ${user.name}!`);
+            setModalMessage(`Bem-vindo, ${user.name}!`);
+            setIsSuccess(true);
             setUser(user.name);
-            navigation.replace('MainTabs');
+            setModalVisible(true);
+
+            setTimeout(() => {
+                setModalVisible(false);
+                navigation.replace('MainTabs');
+            }, 2000);
         } else {
-            Alert.alert('Erro', 'Email ou senha incorretos!');
+            setModalMessage('Email ou senha incorretos!');
+            setIsSuccess(false);
+            setModalVisible(true);
         }
     };
 
@@ -65,6 +79,23 @@ export default function LoginForm({ navigation }) {
             <View style={styles.buttonContainer}>
                 <Button title="Login" color="#ED145B" onPress={handleLogin} /> 
             </View>
+
+            {/* Modal de Feedback do login*/}
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={styles.modalContainer}>
+                    <View style={[styles.modalContent, isSuccess ? styles.successModal : styles.errorModal]}>
+                        <Text style={styles.modalText}>{modalMessage}</Text>
+                        <TouchableOpacity style={styles.modalButton} onPress={() => setModalVisible(false)}>
+                            <Text style={styles.modalButtonText}>OK</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 }
@@ -90,17 +121,49 @@ const styles = StyleSheet.create({
         fontSize: 16,
         borderWidth: 0,
     },
-    button: {
-        width: '87px',
-        height: '22px',
-        backgroundColor: '#ED145B',
-        color: '#fff'
-    },
     buttonContainer: {
         width: 150,
         borderRadius: 8,
         overflow: "hidden",
         alignSelf: "center",
         marginTop: 20,
+    },
+
+    // Estilos do Modal
+    modalContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    modalContent: {
+        width: 300,
+        padding: 20,
+        borderRadius: 10,
+        alignItems: "center",
+    },
+    successModal: {
+        backgroundColor: "#2ecc71", 
+    },
+    errorModal: {
+        backgroundColor: "#e74c3c", 
+    },
+    modalText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+        marginBottom: 10,
+        textAlign: "center",
+    },
+    modalButton: {
+        backgroundColor: "#fff",
+        paddingVertical: 8,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+    },
+    modalButtonText: {
+        color: "#333",
+        fontSize: 14,
+        fontWeight: "bold",
     },
 });
