@@ -15,9 +15,9 @@ Desenvolver um aplicativo em React Native que avalia se o aluno foi aprovado ou 
 - Três campos de entrada para nome, e-mail e senha
 - Os logins são locais, você pode acessar usando um dos nossos logins:
   
-  - nome: Maria | email: maria@fiap.com | senha: RM558832
-  - nome: Vinicius | email: vinicius@fiap.com | senha: RM554456
-  - nome: Laura | email: laura@fiap.com | senha: RM558843
+  - email: maria@fiap.com | senha: RM558832
+  - email: vinicius@fiap.com | senha: RM554456
+  - email: laura@fiap.com | senha: RM558843
 
 ### Tela de Formulário
 - Três campos de entrada para as notas (Nota 1, Nota 2, Nota 3)
@@ -38,7 +38,7 @@ Desenvolver um aplicativo em React Native que avalia se o aluno foi aprovado ou 
 
 ### 1. Faltas
 - Um aluno não pode ser aprovado se tiver mais de 25% de faltas no ano letivo.
-- Para ser aprovado, o estudante deve manter a frequência em pelo menos 75% do total da carga horária da escola.
+- Para ser aprovado, o estudante deve manter a frequência em pelo menos 75% do total da carga horária da escola (sendo 200 aulas totais no ano letivo).
 
 ### 2. Notas
 

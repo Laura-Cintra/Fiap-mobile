@@ -15,9 +15,9 @@ import { useUser } from "../providers/UserContext";
 
 export default function LoginForm({ navigation }) {
     const users = [
-        { name: "Maria", email: "maria@fiap.com", password: "RM558832" },
-        { name: "Vinicius", email: "vinicius@fiap.com", password: "RM554456" },
-        { name: "Laura", email: "laura@fiap.com", password: "RM558843" },
+        { email: "maria@fiap.com", password: "RM558832" },
+        { email: "vinicius@fiap.com", password: "RM554456" },
+        { email: "laura@fiap.com", password: "RM558843" },
     ];
 
     const { setUser } = useUser();
@@ -30,18 +30,26 @@ export default function LoginForm({ navigation }) {
     const [modalMessage, setModalMessage] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const handleLogin = () => {
+    const handleLogin = () => { 
         console.log("Login button pressed");
+    
+        if (name.trim() === "") {
+            setModalMessage("Preencha os campos!");
+            setIsSuccess(false);
+            setModalVisible(true);
+            return; 
+        }
+    
         const user = users.find(
             (u) => u.email === email && u.password === password
         );
-
+    
         if (user) {
-            setModalMessage(`Bem-vindo, ${user.name}!`);
+            setModalMessage(`Bem-vindo, ${name}!`);
             setIsSuccess(true);
-            setUser(user.name);
+            setUser(name);
             setModalVisible(true);
-
+    
             setTimeout(() => {
                 setModalVisible(false);
                 navigation.replace("Home");
@@ -52,6 +60,7 @@ export default function LoginForm({ navigation }) {
             setModalVisible(true);
         }
     };
+    
 
     return (
         <View>
