@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <View style={styles.header}>
             <Ionicons name="menu" size={24} color="#ED145B" />
-            <Image source={require("../../assets/fiap-logo.png")} />
+            <Image source={require("../assets/fiap-logo.png")} />
         </View>
     );
 }

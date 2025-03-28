@@ -1,6 +1,6 @@
-import { React } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ClassCard from "../components/ClassCard/ClassCard";
+import React from "react";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import ClassCard from "../components/ClassCard";
 
 export default function SchedulePage() {
     const classes = [
@@ -40,23 +40,29 @@ export default function SchedulePage() {
             professor2: "João Carlos Lima",
         },
     ];
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Aulas</Text>
-            <ClassCard classes={classes} />
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <Text style={styles.title}>Aulas</Text>
+                {classes.map((item, index) => (
+                    <ClassCard key={`${item.dia}-${index}`} classData={item} />
+                ))}
+            </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         paddingTop: 30,
         paddingHorizontal: 30,
+        paddingBottom: 100,
     },
     title: {
         color: "#FFF",
         fontSize: 24,
         marginBottom: 18,
     },
-    
 });

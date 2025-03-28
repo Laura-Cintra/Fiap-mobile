@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import SchedulePage from "./screens/SchedulePage";
 
 export default function App() {
