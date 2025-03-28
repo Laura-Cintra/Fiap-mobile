@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         paddingHorizontal: 30,
         paddingBottom: 100,
+		backgroundColor: '#111312'
     },
     title: {
         color: "#FFF",
