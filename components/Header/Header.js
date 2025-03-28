@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, View, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function Header() {
     return (

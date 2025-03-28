@@ -1,15 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { Image } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { StyleSheet, View } from "react-native";
 import Header from "./components/Header/Header";
+import SchedulePage from "./screens/SchedulePage";
 
 export default function App() {
     return (
         <View style={styles.container}>
-			<Header/>
+            <Header />
             <View>
                 <StatusBar style="auto" />
+				<SchedulePage/>
             </View>
         </View>
     );
