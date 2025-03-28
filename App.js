@@ -57,6 +57,12 @@ function MainStack() {
 }
 
 export default function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   return (
     <UserProvider>
       <NavigationContainer>
@@ -76,3 +82,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#111312",
   },
 });
+
