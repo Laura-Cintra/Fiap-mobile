@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         marginBottom: 4,
-        marginLeft: 10,
+        marginHorizontal: 10,
     },
     infoSubtitle: {
         fontSize: 12,
@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         textAlign: "center",
-        paddingTop: 2,
+        paddingTop: 4,
     },
 });
