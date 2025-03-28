@@ -1,7 +1,6 @@
-import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 import Entypo from '@expo/vector-icons/Entypo';
+import React from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 export default function Header({ onMenuPress }) {
   return (
     <View style={styles.header}>
