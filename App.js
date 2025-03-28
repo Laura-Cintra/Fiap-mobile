@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
 import Header from './components/Header';
@@ -27,3 +28,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#111312',
   },
 });
+
