@@ -43,7 +43,7 @@ export default function Aulas() {
             if (numFaltas > limiteFaltas) {
                 setMensagem("Reprovado por falta");
                 const faltaPercent = ((numFaltas / aulas) * 100).toFixed(0);
-                setMediaFinal(`${faltaPercent}% de faltas`);
+                setMediaFinal(`${faltaPercent}% de ausência`);
             } else {
                 const media =
                     notasConvertidas
@@ -169,15 +169,6 @@ export default function Aulas() {
                                         Ok
                                     </Text>
                                 </TouchableOpacity>
-                                {mensagem !== "Aprovado com média:" && (
-                                    <TouchableOpacity
-                                        style={styles.modalButton}
-                                    >
-                                        <Text style={styles.modalButtonText}>
-                                            Reconsideração
-                                        </Text>
-                                    </TouchableOpacity>
-                                )}
                             </View>
                         </View>
                     </View>
