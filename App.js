@@ -59,9 +59,9 @@ function MainStack() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="MainTabs" component={MainTabs} />
 			<Stack.Screen name="Home" component={Home} />
 			<Stack.Screen name="Aulas" component={Aulas} />
+            <Stack.Screen name="MainTabs" component={MainTabs} />
         </Stack.Navigator>
     );
 }

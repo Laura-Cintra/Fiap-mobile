@@ -1,21 +1,27 @@
-import React, { useRef, useEffect } from "react";
-import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableOpacity,
-    Animated,
-    Dimensions,
-} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useRef } from "react";
+import {
+	Animated,
+	Dimensions,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from "react-native";
 
 const { width } = Dimensions.get("window");
 const DRAWER_WIDTH = width * 0.4;
 
 export default function Drawer({ isOpen, onClose }) {
     const navigation = useNavigation();
-
+	
+	const handleLogout = () => {
+		navigation.reset({
+			index: 0,
+			routes: [{name: 'Login'}]
+		})
+	}
     const translateX = useRef(new Animated.Value(-DRAWER_WIDTH)).current;
 
     useEffect(() => {
@@ -77,10 +83,7 @@ export default function Drawer({ isOpen, onClose }) {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.logoutButton} onPress={() => {
-					navigation.navigate('Login');
-					onClose();
-				}}>
+                <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
                     <AntDesign name="logout" size={20} color="#ED145B" />
                     <Text style={styles.logoutText}>Sair</Text>
                 </TouchableOpacity>
