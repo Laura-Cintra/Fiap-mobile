@@ -1,4 +1,4 @@
-import { View } from "react-native-web";
+import { View,Text } from "react-native";
 
 export default function Aulas(){
     return(
