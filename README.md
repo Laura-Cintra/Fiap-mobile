@@ -12,7 +12,12 @@ Desenvolver um aplicativo em React Native que avalia se o aluno foi aprovado ou 
 
 ### Tela de Login
 
-lorem ipsum
+- Três campos de entrada para nome, e-mail e senha
+- Os logins são locais, você pode acessar usando um dos nossos logins:
+  
+  - nome: Maria | email: maria@fiap.com | senha: RM558832
+  - nome: Vinicius | email: vinicius@fiap.com | senha: RM554456
+  - nome: Laura | email: laura@fiap.com | senha: RM558843
 
 ### Tela de Formulário
 - Três campos de entrada para as notas (Nota 1, Nota 2, Nota 3)
