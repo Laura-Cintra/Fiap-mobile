@@ -19,6 +19,10 @@ lorem ipsum
 - Um campo adicional para inserir o número de faltas
 - Um botão de validação para verificar a situação do aluno
 
+### Tela de Aulas
+
+- Exibição de cards contendo as informações das aulas e seus horários.
+
 ### Funcionalidade do Botão de Validação
 - O botão, ao ser clicado, deve analisar os dados inseridos e exibir uma mensagem:
   - "Reprovado por falta", caso o número de faltas ultrapasse o limite permitido.
