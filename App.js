@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Login from "./pages/Login";  
 import Home from "./pages/Home";
 import Profile from "./pages/Aulas";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import UserProvider from "./providers/UserContext";
 
 const Stack = createStackNavigator();
@@ -45,8 +45,8 @@ function MainTabs() {
 }
 
 // Configuração do Stack Navigator
-{/*//primeira tela login*/}
- {/* //apos ela, todas as outras telas disponiveis */}
+//{/primeira tela login/}
+ //{/* //apos ela, todas as outras telas disponiveis */}
 function MainStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -57,12 +57,6 @@ function MainStack() {
 }
 
 export default function App() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
   return (
     <UserProvider>
       <NavigationContainer>
@@ -82,4 +76,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#111312",
   },
 });
-

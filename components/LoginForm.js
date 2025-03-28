@@ -8,7 +8,7 @@ import EvilIcons from '@expo/vector-icons/EvilIcons';
 export default function LoginForm({ navigation }) {
     const users = [
         { name: 'Maria', email: 'maria@fiap.com', password: 'RM558832' },
-        { name: 'Vinicius', email: 'vinicius@fiap.com', password: 'RM' },
+        { name: 'Vinicius', email: 'vinicius@fiap.com', password: 'RM554456' },
         { name: 'Laura', email: 'laura@fiap.com', password: 'RM558843' },
     ];
 
