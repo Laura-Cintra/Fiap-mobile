@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
-import SchedulePage from './screens/SchedulePage'; // Sua página de aulas
+import SchedulePage from './pages/Aulas'; // Sua página de aulas
 
 export default function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
